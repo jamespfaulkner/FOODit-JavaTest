@@ -200,6 +200,12 @@
                 <groupId>com.google.appengine</groupId>
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>1.8.4</version>
+                  <configuration>
+                    <jvmFlags>
+                      <jvmFlag>-Xdebug</jvmFlag>
+                      <jvmFlag>-Xrunjdwp:transport=dt_socket,address=51044,server=y,suspend=n</jvmFlag>
+                    </jvmFlags>
+                  </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
