@@ -1,4 +1,8 @@
-import com.foodit.test.sample.controller.RestaurantData;
+import com.foodit.test.sample.dao.RestaurantDAO;
+import com.foodit.test.sample.dao.RestaurantDAOImpl;
+import com.foodit.test.sample.model.RestaurantData;
+import com.foodit.test.sample.service.RestaurantDataService;
+import com.foodit.test.sample.service.RhinoRestaurantDataServiceImpl;
 import com.googlecode.objectify.ObjectifyService;
 import com.threewks.thundr.gae.GaeModule;
 import com.threewks.thundr.gae.objectify.ObjectifyModule;
@@ -33,4 +37,9 @@ public class ApplicationModule extends BaseModule {
 	private void configureObjectify() {
 		ObjectifyService.register(RestaurantData.class);
 	}
+
+    protected void addServices(UpdatableInjectionContext injectionContext) {
+        injectionContext.inject(RestaurantDAOImpl.class).as(RestaurantDAO.class);
+        injectionContext.inject(RhinoRestaurantDataServiceImpl.class).as(RestaurantDataService.class);
+    }
 }

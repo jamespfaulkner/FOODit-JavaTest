@@ -1,4 +1,4 @@
-package com.foodit.test.sample.controller;
+package com.foodit.test.sample.model;
 
 import com.google.appengine.api.datastore.Text;
 import com.googlecode.objectify.annotation.Entity;
