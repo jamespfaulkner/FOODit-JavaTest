@@ -80,5 +80,35 @@
     </ul>
   </p>
 
+  <h2>API</h2>
+  <p>
+    API
+  </p>
+  <h5>Total Number of Orders</h5>
+  <p>
+    <ul>
+      <li><a href="/restaurant/bbqgrill/orders">bbqgrill</a></li>
+      <li><a href="/restaurant/butlersthaicafe/orders">butlersthaicafe</a></li>
+      <li><a href=/restaurant/jashanexquisiteindianfood/orders>jashanexquisiteindianfood</a></li>
+      <li><a href="/restaurant/newchinaexpress/orders">newchinaexpress</a></li>
+    </ul>
+  </p>
+  <h5>Amount of Sales</h5>
+  <p>
+    <ul>
+      <li><a href="/restaurant/bbqgrill/sales">bbqgrill</a></li>
+      <li><a href="/restaurant/butlersthaicafe/sales">butlersthaicafe</a></li>
+      <li><a href=/restaurant/jashanexquisiteindianfood/Sales>jashanexquisiteindianfood</a></li>
+      <li><a href="/restaurant/newchinaexpress/Sales">newchinaexpress</a></li>
+    </ul>
+  </p>
+  <h5>Most popular items</h5>
+  <p>
+    <ul>
+      <li><a href="/overall/most_popular_meals">Most popular meals</a></li>
+    </ul>
+  </p>
+
+
 
 </section>

@@ -26,58 +26,7 @@ import org.apache.commons.io.IOUtils;
  *
  * @author James Faulkner
  */
-public class RhinoRestaurantDataServiceImpl implements RestaurantDataService {
-
-    public static final List<String> RESTAURANTS = ImmutableList.of("bbqgrill", "butlersthaicafe", "jashanexquisiteindianfood", "newchinaexpress");
-
-    @Inject
-    private RestaurantDAO restaurantDAO;
-
-    @Override
-    public RestaurantData get(final String restaurantName) {
-        return restaurantDAO.get(restaurantName);
-    }
-
-    @Override
-    public void save(final RestaurantData restaurantData) {
-        restaurantDAO.save(restaurantData);
-    }
-
-    @Override
-    public Collection<RestaurantData> findAll() {
-        return Collections2.transform(
-                RESTAURANTS, new Function<String, RestaurantData>() {
-            @Override
-            public RestaurantData apply(final String restaurantName) {
-                return loadData(restaurantName);
-            }
-        }
-        );
-    }
-
-    @Override
-    public void initData() {
-        Logger.info("Loading data");
-        for (String restaurant : RESTAURANTS) {
-            restaurantDAO.save(loadData(restaurant));
-        }
-    }
-
-    private RestaurantData loadData(String restaurantName) {
-        String orders = readFile(String.format("orders-%s.json", restaurantName));
-        String menu = readFile(String.format("menu-%s.json", restaurantName));
-        return new RestaurantData(restaurantName, menu, orders);
-    }
-
-    private String readFile(String resourceName) {
-        URL url = Resources.getResource(resourceName);
-        try {
-            return IOUtils.toString(new InputStreamReader(url.openStream()));
-        } catch (IOException e) {
-            Logger.error(e.getMessage());
-            throw new RuntimeException(e);
-        }
-    }
+public class RhinoRestaurantDataServiceImpl extends AbstractRestaurantDataService {
 
     @Override
     public long orderCount(final String restaurantName) {

@@ -1,6 +1,7 @@
 import com.foodit.test.sample.dao.RestaurantDAO;
 import com.foodit.test.sample.dao.RestaurantDAOImpl;
 import com.foodit.test.sample.model.RestaurantData;
+import com.foodit.test.sample.service.GsonRestaurantDataServiceImpl;
 import com.foodit.test.sample.service.RestaurantDataService;
 import com.foodit.test.sample.service.RhinoRestaurantDataServiceImpl;
 import com.googlecode.objectify.ObjectifyService;
@@ -40,6 +41,7 @@ public class ApplicationModule extends BaseModule {
 
     protected void addServices(UpdatableInjectionContext injectionContext) {
         injectionContext.inject(RestaurantDAOImpl.class).as(RestaurantDAO.class);
-        injectionContext.inject(RhinoRestaurantDataServiceImpl.class).as(RestaurantDataService.class);
+//        injectionContext.inject(RhinoRestaurantDataServiceImpl.class).as(RestaurantDataService.class);
+        injectionContext.inject(GsonRestaurantDataServiceImpl.class).as(RestaurantDataService.class);
     }
 }

@@ -3,6 +3,7 @@ package com.foodit.test.sample.controller;
 import java.io.IOException;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.servlet.http.HttpServletResponse;
 
 import com.foodit.test.sample.model.RestaurantData;
