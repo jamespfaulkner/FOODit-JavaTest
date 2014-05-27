@@ -4,7 +4,6 @@ import java.lang.reflect.Field;
 
 /**
  * @author James Faulkner
- * @since 4.8
  */
 public class ReflectionUtils {
 

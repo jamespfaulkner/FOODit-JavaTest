@@ -4,22 +4,14 @@
         "orderId": 5456722831343616,
         "easyOrderNum": 1,
         "created": "2014-03-23T19:06:37.459Z",
-        "storeId": "bbqgrill",
-        "storeName": "B-B-Q Grill",
+        "storeId": "foobar",
+        "storeName": "Foo Bar",
         "totalValue": 9.5,
         "lineItems": [
             {
                 "id": 5,
                 "total": "7.50",
                 "unitPrice": "7.50",
-                "quantity": 1,
-                "promotion": false,
-                "mealOptions": []
-            },
-            {
-                "id": 37,
-                "total": "2.00",
-                "unitPrice": "2.00",
                 "quantity": 1,
                 "promotion": false,
                 "mealOptions": []
@@ -42,8 +34,8 @@
             "orderId": 5456722831343616,
             "easyOrderNum": 1,
             "created": "2014-03-23T19:06:37.459Z",
-            "storeId": "bbqgrill",
-            "storeName": "B-B-Q Grill",
+            "storeId": "foobar",
+            "storeName": "Foo Bar",
             "totalValue": 9.5,
             "lineItems": [
                 {

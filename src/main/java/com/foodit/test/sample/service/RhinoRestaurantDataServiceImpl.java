@@ -1,24 +1,10 @@
 package com.foodit.test.sample.service;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.Collection;
-import java.util.List;
-
-import javax.inject.Inject;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-import com.foodit.test.sample.dao.RestaurantDAO;
 import com.foodit.test.sample.exception.RestaurantDataException;
 import com.foodit.test.sample.model.RestaurantData;
-import com.google.appengine.repackaged.com.google.common.base.Function;
-import com.google.appengine.repackaged.com.google.common.collect.Collections2;
-import com.google.common.collect.ImmutableList;
-import com.google.common.io.Resources;
-import com.threewks.thundr.logger.Logger;
-import org.apache.commons.io.IOUtils;
 
 /**
  * Implementation of {@link RestaurantDataService} that uses javascript to do the work. <br/> This is far from teh best way of doing this, but is an easy way of getting it up and

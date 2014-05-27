@@ -2,21 +2,33 @@ package com.foodit.test.sample.model;
 
 /**
  * @author James Faulkner
- * @since 4.8
  */
 public class LineItem {
 
-    private int id;
+    private long id;
+    private int quantity;
 
-    public LineItem(final int id) {
-        this.id = id;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public int getId() {
+    public void setQuantity(final int quantity) {
+        this.quantity = quantity;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(final int id) {
+    public void setId(final long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "LineItem{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                '}';
     }
 }

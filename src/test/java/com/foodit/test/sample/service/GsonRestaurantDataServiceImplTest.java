@@ -21,24 +21,22 @@ import org.apache.commons.io.IOUtils;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
+import static com.foodit.test.sample.service.GsonRestaurantDataServiceImpl.OrderedMenuItemRecorder;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
  * @author James Faulkner
  */
-public class RhinoRestaurantDataServiceImplTest {
+public class GsonRestaurantDataServiceImplTest {
 
-    public void setUp() throws Exception {
-    }
-
-    public void tearDown() throws Exception {
-
-    }
+    private static final Gson GSON = new Gson();
+    private static final Type ORDERED_ITEM_RECORDER_TYPE = new TypeToken<Collection<OrderedMenuItemRecorder>>() {
+    }.getType();
 
     @Test
-    public void orderCountTest() {
-        RestaurantDataService restaurantDataService = new RhinoRestaurantDataServiceImpl();
+    public void testOrderCount() throws Exception {
+        RestaurantDataService restaurantDataService = new GsonRestaurantDataServiceImpl();
         final RestaurantData restaurantData = new RestaurantData("Bar Foo", "[]", "[]");
         RestaurantDAO dao = new MockRestaurantDAO() {
             public RestaurantData get(final String restaurantName) {
@@ -54,6 +52,9 @@ public class RhinoRestaurantDataServiceImplTest {
 
         restaurantData.setOrdersJson(new Text(readFile("orders-two.json")));
         assertEquals(2L, restaurantDataService.orderCount("Bar Foo"));
+
+        restaurantData.setOrdersJson(new Text(readFile("orders-three.json")));
+        assertEquals(86L, restaurantDataService.orderCount("Bar Foo"));
     }
 
     @Test
@@ -80,9 +81,9 @@ public class RhinoRestaurantDataServiceImplTest {
     }
 
     @Test
-    public void testMostPopularMealsOverall() {
+    public void testMostPopularMealsOverall() throws Exception {
         final List<RestaurantData> restaurantDataLists = Lists.newArrayList();
-        RestaurantDataService restaurantDataService = new RhinoRestaurantDataServiceImpl() {
+        RestaurantDataService restaurantDataService = new GsonRestaurantDataServiceImpl() {
             @Override
             public Collection<RestaurantData> findAll() {
                 return restaurantDataLists;
@@ -91,19 +92,28 @@ public class RhinoRestaurantDataServiceImplTest {
 
         assertThat(restaurantDataService.mostPopularMealsOverall(), Matchers.is("[]"));
 
-        restaurantDataLists.add(new RestaurantData("Foo Bar", "[]", "[]"));
+        restaurantDataLists.add(new RestaurantData("foobar", "{}", "[]"));
         assertThat(restaurantDataService.mostPopularMealsOverall(), Matchers.is("[]"));
 
-        restaurantDataLists.add(new RestaurantData("Orders One", "[]", readFile("orders-one.json")));
+        restaurantDataLists.add(new RestaurantData("foobar", readFile("menu-one.json"), readFile("orders-one.json")));
         assertThat(restaurantDataService.mostPopularMealsOverall(), Matchers.not(Matchers.isEmptyOrNullString()));
 
-        restaurantDataLists.add(new RestaurantData("Orders Two", "[]", readFile("orders-two.json")));
+        Collection<OrderedMenuItemRecorder> orderedMenuItemRecorders = GSON.fromJson(restaurantDataService.mostPopularMealsOverall(), ORDERED_ITEM_RECORDER_TYPE);
+        assertThat(orderedMenuItemRecorders, Matchers.hasSize(1));
+        assertThat(orderedMenuItemRecorders, Matchers.contains(new GsonRestaurantDataServiceImpl.OrderedMenuItemRecorder().setId(5).setRestaurantId("foobar")));
 
-        Type collectionType = new TypeToken<Collection<Meal>>(){}.getType();
-        Collection<Meal> meals = new Gson().fromJson(restaurantDataService.mostPopularMealsOverall(), collectionType);
+        restaurantDataLists.add(new RestaurantData("Orders Two", readFile("menu-two.json"), readFile("orders-two.json")));
+        orderedMenuItemRecorders = GSON.fromJson(restaurantDataService.mostPopularMealsOverall(), ORDERED_ITEM_RECORDER_TYPE);
+        assertThat(orderedMenuItemRecorders, Matchers.hasSize(3));
+        assertThat(
+                orderedMenuItemRecorders, Matchers.containsInAnyOrder(
+                new OrderedMenuItemRecorder().setId(5).setRestaurantId("foobar"),
+                new OrderedMenuItemRecorder().setId(5).setRestaurantId("Orders Two"),
+                new OrderedMenuItemRecorder().setId(37).setRestaurantId("Orders Two")
+        )
+        );
 
-        assertThat(meals, Matchers.hasSize(2));
-        assertThat(meals, Matchers.contains(new Meal("bbqgrill", "5"), new Meal("bbqgrill", "37")));
+        assertEquals(orderedMenuItemRecorders.iterator().next(), new OrderedMenuItemRecorder().setId(5).setRestaurantId("Orders Two"));
     }
 
     private String readFile(String resourceName) {
@@ -115,43 +125,4 @@ public class RhinoRestaurantDataServiceImplTest {
             throw new RuntimeException(e);
         }
     }
-
-    private class Meal {
-        String storeId;
-        String mealId;
-
-        private Meal(final String storeId, final String mealId) {
-            this.storeId = storeId;
-            this.mealId = mealId;
-        }
-
-        @Override
-        public boolean equals(final Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (!(o instanceof Meal)) {
-                return false;
-            }
-
-            final Meal meal = (Meal) o;
-
-            if (mealId != null ? !mealId.equals(meal.mealId) : meal.mealId != null) {
-                return false;
-            }
-            if (storeId != null ? !storeId.equals(meal.storeId) : meal.storeId != null) {
-                return false;
-            }
-
-            return true;
-        }
-
-        @Override
-        public int hashCode() {
-            int result = storeId != null ? storeId.hashCode() : 0;
-            result = 31 * result + (mealId != null ? mealId.hashCode() : 0);
-            return result;
-        }
-    }
-
 }

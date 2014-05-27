@@ -1,0 +1,26 @@
+{
+    "menu": {
+        "Kebabs (Kebabs)": [
+            {
+                "id": 5,
+                "name": "Id is 5",
+                "description": "Id is 5 desc",
+                "category": "Kebabs",
+                "sizeAndPrice": {
+                    "Regular": "0.00"
+                },
+                "mealTypeOptions": []
+            },
+            {
+                "id": 37,
+                "name": "Id is 37",
+                "description": "Id is 37 desc",
+                "category": "Kebabs",
+                "sizeAndPrice": {
+                    "Regular": "0.00"
+                },
+                "mealTypeOptions": []
+            }
+        ]
+    }
+}

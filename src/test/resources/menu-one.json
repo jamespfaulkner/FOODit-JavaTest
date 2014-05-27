@@ -1,0 +1,16 @@
+{
+    "menu": {
+        "Kebabs (Kebabs)": [
+            {
+                "id": 5,
+                "name": "Lamb Kebab",
+                "description": "Cubes of lamb cooked on charcoal served in pitta bread and salad",
+                "category": "Kebabs",
+                "sizeAndPrice": {
+                    "Regular": "0.00"
+                },
+                "mealTypeOptions": []
+            }
+        ]
+    }
+}

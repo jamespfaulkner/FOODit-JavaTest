@@ -1,7 +1,6 @@
 package com.foodit.test.sample.controller;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import com.foodit.test.sample.service.RestaurantDataService;
 import com.threewks.thundr.view.string.StringView;
