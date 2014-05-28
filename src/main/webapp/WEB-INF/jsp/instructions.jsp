@@ -58,57 +58,79 @@
   <p>Refer to the readme file for full test details.</p>
 
   <h3>My Stuff</h3>
+
   <p>
     Extra links for help during development are provided below:
   </p>
   <h5>Menus</h5>
+
   <p>
-    <ul>
-      <li><a href="/restaurant/bbqgrill/download/menu">bbqgrill</a></li>
-      <li><a href="/restaurant/butlersthaicafe/download/menu">butlersthaicafe</a></li>
-      <li><a href=/restaurant/jashanexquisiteindianfood/download/menu>jashanexquisiteindianfood</a></li>
-      <li><a href="/restaurant/newchinaexpress/download/menu">newchinaexpress</a></li>
-    </ul>
+  <ul>
+    <li><a href="/restaurant/bbqgrill/download/menu">bbqgrill</a></li>
+    <li><a href="/restaurant/butlersthaicafe/download/menu">butlersthaicafe</a></li>
+    <li><a href=/restaurant/jashanexquisiteindianfood/download/menu>jashanexquisiteindianfood</a></li>
+    <li><a href="/restaurant/newchinaexpress/download/menu">newchinaexpress</a></li>
+  </ul>
   </p>
   <h5>Orders</h5>
+
   <p>
-    <ul>
-      <li><a href="/restaurant/bbqgrill/download/orders">bbqgrill</a></li>
-      <li><a href="/restaurant/butlersthaicafe/download/orders">butlersthaicafe</a></li>
-      <li><a href=/restaurant/jashanexquisiteindianfood/download/orders>jashanexquisiteindianfood</a></li>
-      <li><a href="/restaurant/newchinaexpress/download/orders">newchinaexpress</a></li>
-    </ul>
+  <ul>
+    <li><a href="/restaurant/bbqgrill/download/orders">bbqgrill</a></li>
+    <li><a href="/restaurant/butlersthaicafe/download/orders">butlersthaicafe</a></li>
+    <li><a href=/restaurant/jashanexquisiteindianfood/download/orders>jashanexquisiteindianfood</a></li>
+    <li><a href="/restaurant/newchinaexpress/download/orders">newchinaexpress</a></li>
+  </ul>
   </p>
 
   <h2>API</h2>
+
   <p>
     API
   </p>
   <h5>Total Number of Orders</h5>
+
   <p>
-    <ul>
-      <li><a href="/restaurant/bbqgrill/orders">bbqgrill</a></li>
-      <li><a href="/restaurant/butlersthaicafe/orders">butlersthaicafe</a></li>
-      <li><a href=/restaurant/jashanexquisiteindianfood/orders>jashanexquisiteindianfood</a></li>
-      <li><a href="/restaurant/newchinaexpress/orders">newchinaexpress</a></li>
-    </ul>
+  <ul>
+    <li><a href="/restaurant/bbqgrill/orders">bbqgrill</a></li>
+    <li><a href="/restaurant/butlersthaicafe/orders">butlersthaicafe</a></li>
+    <li><a href=/restaurant/jashanexquisiteindianfood/orders>jashanexquisiteindianfood</a></li>
+    <li><a href="/restaurant/newchinaexpress/orders">newchinaexpress</a></li>
+  </ul>
   </p>
   <h5>Amount of Sales</h5>
+
   <p>
-    <ul>
-      <li><a href="/restaurant/bbqgrill/sales">bbqgrill</a></li>
-      <li><a href="/restaurant/butlersthaicafe/sales">butlersthaicafe</a></li>
-      <li><a href=/restaurant/jashanexquisiteindianfood/Sales>jashanexquisiteindianfood</a></li>
-      <li><a href="/restaurant/newchinaexpress/Sales">newchinaexpress</a></li>
-    </ul>
+  <ul>
+    <li><a href="/restaurant/bbqgrill/sales">bbqgrill</a></li>
+    <li><a href="/restaurant/butlersthaicafe/sales">butlersthaicafe</a></li>
+    <li><a href=/restaurant/jashanexquisiteindianfood/sales>jashanexquisiteindianfood</a></li>
+    <li><a href="/restaurant/newchinaexpress/sales">newchinaexpress</a></li>
+  </ul>
   </p>
   <h5>Most popular items</h5>
+
   <p>
-    <ul>
-      <li><a href="/overall/most_popular_meals">Most popular meals</a></li>
-    </ul>
+  <ul>
+    <li><a href="/business_intelligence/most_popular_meals">Most popular meals overall</a></li>
+    <li><a href="/business_intelligence/bbqgrill/most_popular_meals">bbqgrill</a></li>
+    <li><a href="/business_intelligence/butlersthaicafe/most_popular_meals">butlersthaicafe</a></li>
+    <li><a href=/business_intelligence/jashanexquisiteindianfood/most_popular_meals>jashanexquisiteindianfood</a></li>
+    <li><a href="/business_intelligence/newchinaexpress/most_popular_meals">newchinaexpress</a></li>
+  </ul>
   </p>
 
+  <h5>Most popular categories</h5>
+
+  <p>
+  <ul>
+    <li><a href="/business_intelligence/most_popular_categories">Most popular categories overall</a></li>
+  <li><a href="/business_intelligence/bbqgrill/most_popular_categories">bbqgrill</a></li>
+  <li><a href="/business_intelligence/butlersthaicafe/most_popular_categories">butlersthaicafe</a></li>
+  <li><a href=/business_intelligence/jashanexquisiteindianfood/most_popular_categories>jashanexquisiteindianfood</a></li>
+  <li><a href="/business_intelligence/newchinaexpress/most_popular_categories">newchinaexpress</a></li>  
+  </ul>
+  </p>
 
 
 </section>

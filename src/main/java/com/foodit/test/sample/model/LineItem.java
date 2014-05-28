@@ -12,16 +12,18 @@ public class LineItem {
         return quantity;
     }
 
-    public void setQuantity(final int quantity) {
+    public LineItem setQuantity(final int quantity) {
         this.quantity = quantity;
+        return this;
     }
 
     public long getId() {
         return id;
     }
 
-    public void setId(final long id) {
+    public LineItem setId(final long id) {
         this.id = id;
+        return this;
     }
 
     @Override

@@ -43,7 +43,10 @@ public class ApplicationRoutes {
 
         routes.addRoute(new Route(GET, "/restaurant/{restaurantName}/orders", null), new MethodAction(RestApiController.class, "orders"));
         routes.addRoute(new Route(GET, "/restaurant/{restaurantName}/sales", null), new MethodAction(RestApiController.class, "sales"));
+        routes.addRoute(new Route(GET, "/business_intelligence/{restaurantName}/most_popular_meals", null), new MethodAction(RestApiController.class, "mostPopularMealsForRestaurant"));
+        routes.addRoute(new Route(GET, "/business_intelligence/{restaurantName}/most_popular_categories", null), new MethodAction(RestApiController.class, "mostPopularCategoriesForRestaurant"));
 
-        routes.addRoute(new Route(GET, "/overall/most_popular_meals", null), new MethodAction(RestApiController.class, "mostPopularMeals"));
+        routes.addRoute(new Route(GET, "/business_intelligence/most_popular_meals", null), new MethodAction(RestApiController.class, "mostPopularMeals"));
+        routes.addRoute(new Route(GET, "/business_intelligence/most_popular_categories", null), new MethodAction(RestApiController.class, "mostPopularCategories"));
     }
 }

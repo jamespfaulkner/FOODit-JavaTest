@@ -1,5 +1,6 @@
 package com.foodit.test.sample.service;
 
+import static com.foodit.utils.FileUtils.readFile;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
@@ -77,43 +78,6 @@ public class RhinoRestaurantDataServiceImplTest {
 
         restaurantData.setOrdersJson(new Text(readFile("orders-three.json")));
         assertEquals(1497D, restaurantDataService.salesValue("Foo Bar"), 0D);
-    }
-
-    @Test
-    public void testMostPopularMealsOverall() {
-        final List<RestaurantData> restaurantDataLists = Lists.newArrayList();
-        RestaurantDataService restaurantDataService = new RhinoRestaurantDataServiceImpl() {
-            @Override
-            public Collection<RestaurantData> findAll() {
-                return restaurantDataLists;
-            }
-        };
-
-        assertThat(restaurantDataService.mostPopularMealsOverall(), Matchers.is("[]"));
-
-        restaurantDataLists.add(new RestaurantData("Foo Bar", "[]", "[]"));
-        assertThat(restaurantDataService.mostPopularMealsOverall(), Matchers.is("[]"));
-
-        restaurantDataLists.add(new RestaurantData("Orders One", "[]", readFile("orders-one.json")));
-        assertThat(restaurantDataService.mostPopularMealsOverall(), Matchers.not(Matchers.isEmptyOrNullString()));
-
-        restaurantDataLists.add(new RestaurantData("Orders Two", "[]", readFile("orders-two.json")));
-
-        Type collectionType = new TypeToken<Collection<Meal>>(){}.getType();
-        Collection<Meal> meals = new Gson().fromJson(restaurantDataService.mostPopularMealsOverall(), collectionType);
-
-        assertThat(meals, Matchers.hasSize(2));
-        assertThat(meals, Matchers.contains(new Meal("bbqgrill", "5"), new Meal("bbqgrill", "37")));
-    }
-
-    private String readFile(String resourceName) {
-        URL url = Resources.getResource(resourceName);
-        try {
-            return IOUtils.toString(new InputStreamReader(url.openStream()));
-        } catch (IOException e) {
-            Logger.error(e.getMessage());
-            throw new RuntimeException(e);
-        }
     }
 
     private class Meal {

@@ -2,6 +2,8 @@ package com.foodit.test.sample.service;
 
 import java.util.Collection;
 
+import com.foodit.test.sample.model.Menu;
+import com.foodit.test.sample.model.Order;
 import com.foodit.test.sample.model.RestaurantData;
 
 /**
@@ -52,10 +54,7 @@ public interface RestaurantDataService {
      */
     public double salesValue(final String restaurantName);
 
-    /**
-     * Get a JSON string of the most popular meals in the entire system
-     *
-     * @return a JSON String of the most popular meals.
-     */
-    public String mostPopularMealsOverall();
+    public Menu getMenu(final RestaurantData restaurantData);
+
+    public Collection<Order> getOrders(final RestaurantData restaurantLoadData);
 }

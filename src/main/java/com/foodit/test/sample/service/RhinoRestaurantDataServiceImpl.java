@@ -1,9 +1,13 @@
 package com.foodit.test.sample.service;
 
+import java.util.Collection;
+
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 import com.foodit.test.sample.exception.RestaurantDataException;
+import com.foodit.test.sample.model.Menu;
+import com.foodit.test.sample.model.Order;
 import com.foodit.test.sample.model.RestaurantData;
 
 /**
@@ -83,6 +87,21 @@ public class RhinoRestaurantDataServiceImpl extends AbstractRestaurantDataServic
         );
 
         return "" + runJavascript(script.toString(), "jsonString");
+    }
+
+    // not supported by rhino impl
+    public String mostPopularCategoryOverall() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Menu getMenu(final RestaurantData restaurantData) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public Collection<Order> getOrders(final RestaurantData restaurantLoadData) {
+        throw new UnsupportedOperationException();
     }
 
     private Object runJavascript(String script, String variable) {
